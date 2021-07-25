@@ -9,4 +9,5 @@ coverage:
 	@rm -rf cov
 
 .PHONY: test
+test:
 	@deno test --allow-all --unstable
