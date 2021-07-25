@@ -1,6 +1,6 @@
 .PHONY: init
 init:
-	@repo=$$(basename `git rev-parse --show-toplevel`) && repo=($${repo/-/ }) && repo=$${repo[1]/\.*/ } && echo mv denops/template denops/$${repo}
+	@repo=$$(basename `git rev-parse --show-toplevel`) && repo=($${repo/-/ }) && repo=$${repo[1]/\.*/ } && mv denops/template denops/$${repo}
 
 .PHONY: coverage
 coverage:
