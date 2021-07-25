@@ -1,5 +1,5 @@
 # denops-template.vim
-A template of creating a Vim/Neovim plugin written in [denops](https://github.com/vim-denops)
+A plugin template for [denops](https://github.com/vim-denops)
 
 ## Usage
 1. Fork this repository.
