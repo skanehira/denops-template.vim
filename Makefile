@@ -11,3 +11,7 @@ coverage:
 .PHONY: test
 test:
 	@deno test --allow-all --unstable
+
+.PHONY: update-deps
+update-deps:
+	@udd denops/template/deps.ts
