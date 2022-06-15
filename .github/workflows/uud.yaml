@@ -45,7 +45,7 @@ jobs:
         with:
           title: ":package: Update Deno dependencies"
           body: |
-            The output of `make update` is
+            The output of `make deps` is
 
             ```
             ${{ steps.log.outputs.content }}
