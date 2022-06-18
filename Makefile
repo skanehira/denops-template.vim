@@ -1,4 +1,5 @@
-PLUGIN_NAME=$$(basename `git rev-parse --show-toplevel` .vim)
+DIR_NAME := $(shell basename `git rev-parse --show-toplevel` .vim)
+PLUGIN_NAME := $(shell echo $(DIR_NAME) | cut -d "-" -f 2)
 
 .PHONY: init
 init:
