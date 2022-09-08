@@ -6,6 +6,7 @@ A plugin template for [denops](https://github.com/vim-denops)
    Repository name must be `denops-xxx.vim`
 2. Run `make init`
    Its rename directory `./denops/template` to `./denops/xxx`, `xxx` is your repository name that part of `denops-xxx`.
+3. Run `sed` to replace `template` to your repository name in `test/sample.vim` and `.themisrc`
 
 ## Author
 skanehira

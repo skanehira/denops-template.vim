@@ -1,0 +1,9 @@
+let s:assert = themis#helper('assert')
+let s:expect = themis#helper('expect')
+
+function WaitDenopsLoading()
+  let s:result = denops#plugin#wait('template', {'interval': 1})
+  if s:result !=# 0
+    call s:assert.fail('template is not ready, result: ' .. s:result)
+  endif
+endfunction

@@ -69,9 +69,28 @@ jobs:
         run: |
           git clone https://github.com/vim-denops/denops.vim $HOME/denops.vim
           echo "::set-output name=path::$HOME/denops.vim"
+      - name: Setup themis
+        run: |
+          git clone https://github.com/thinca/vim-themis $HOME/vim-themis
+      - name: Set themis path
+        run: |
+          echo "$HOME/vim-themis/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+        if: runner.os == 'Windows'
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: runner.os == 'Windows'
+        env:
+          DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
+          DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
+          DENOPS_PATH: ${{ steps.denops.outputs.path }}
+      - name: Set themis path
+        run: |
+          echo "$HOME/vim-themis/bin" >> $GITHUB_PATH
+        if: runner.os != 'Windows'
       - name: Test
         run: |
           make test
+          make test-themis
         env:
           DENOPS_TEST_VIM: ${{ steps.vim.outputs.executable_path }}
           DENOPS_TEST_NVIM: ${{ steps.nvim.outputs.executable_path }}
