@@ -26,7 +26,7 @@ jobs:
       - name: Diff check
         id: diff
         run: |
-          echo "::set-output name=content::$(git diff --name-only | grep ts)"
+          echo "content=$(git diff --name-only | grep ts)" >> $GITHUB_OUTPUT
       - name: Commit changes
         if: ${{ steps.diff.outputs.content != '' }}
         run: |
