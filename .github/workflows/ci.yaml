@@ -68,7 +68,7 @@ jobs:
         id: denops
         run: |
           git clone https://github.com/vim-denops/denops.vim $HOME/denops.vim
-          echo "::set-output name=path::$HOME/denops.vim"
+          echo "path=$HOME/denops.vim" >> $GITHUB_OUTPUT
       - name: Test
         run: |
           make test
