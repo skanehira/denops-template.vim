@@ -1,8 +1,8 @@
 DIR_NAME := $(shell basename `git rev-parse --show-toplevel` .vim)
 PLUGIN_NAME := $(shell echo $(DIR_NAME) | cut -d "-" -f 2)
-DENOPS := $${DENOPS_PATH:-$$GHQ_ROOT/github.com/vim-denops/denops.vim}
-VIM := $${DENOPS_TEST_VIM:-$$(which vim)}
-NVIM := $${DENOPS_TEST_NVIM:-$$(which nvim)}
+DENOPS := $${DENOPS_TEST_DENOPS_PATH:-$$GHQ_ROOT/github.com/vim-denops/denops.vim}
+VIM := $${DENOPS_TEST_VIM_EXECUTABLE:-$$(which vim)}
+NVIM := $${DENOPS_TEST_NVIM_EXECUTABLE:-$$(which nvim)}
 
 .PHONY: init
 init:
@@ -14,10 +14,10 @@ coverage: test
 
 .PHONY: test
 test:
-	@DENOPS_PATH=$(DENOPS) \
-		DENOPS_TEST_NVIM=$(NVIM) \
-		DENOPS_TEST_VIM=$(VIM) \
-		deno test -A --unstable --coverage=cov
+	@DENOPS_TEST_DENOPS_PATH=$(DENOPS) \
+		DENOPS_TEST_NVIM_EXECUTABLE=$(NVIM) \
+		DENOPS_TEST_VIM_EXECUTABLE=$(VIM) \
+		deno test -A --unstable
 
 .PHONY: deps
 deps:
