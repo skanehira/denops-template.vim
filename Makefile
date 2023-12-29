@@ -22,3 +22,10 @@ test:
 .PHONY: deps
 deps:
 	@deno run -A https://deno.land/x/udd@0.7.5/main.ts denops/$(PLUGIN_NAME)/deps.ts
+
+.PHONY: test-themis
+test-themis:
+	@echo ==== test in Vim =====
+	@THEMIS_VIM=$(VIM) THEMIS_ARGS="-e -s -u DEFAULTS" themis --runtimepath $(DENOPS)
+	@echo ==== test in Neovim =====
+	@THEMIS_VIM=$(NVIM) THEMIS_ARGS="-e -s -u NONE" themis --runtimepath $(DENOPS)
