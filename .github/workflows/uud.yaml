@@ -40,7 +40,7 @@ jobs:
           ${{ steps.log.outputs.content }}
 
           EOM
-      - uses: peter-evans/create-pull-request@v3
+      - uses: peter-evans/create-pull-request@v6
         if: ${{ steps.diff.outputs.content != '' }}
         with:
           title: ":package: Update Deno dependencies"
