@@ -8,6 +8,11 @@ on:
   pull_request:
     paths-ignore:
       - 'README.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     strategy:
@@ -30,7 +35,7 @@ jobs:
       matrix:
         runner:
           - windows-2022
-          - macos-12
+          - macos-15
           - ubuntu-22.04
         version:
           - "2.x"
