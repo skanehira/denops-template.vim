@@ -1,4 +1,4 @@
-import { assert } from "https://deno.land/std@0.210.0/assert/mod.ts";
+import { assert } from "jsr:@std/assert@1.0.7";
 
 Deno.test("Hello Test", () => {
   assert("Hello");
