@@ -8,12 +8,17 @@ on:
   pull_request:
     paths-ignore:
       - 'README.md'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   lint:
     strategy:
       matrix:
         deno-version: 
-          - v1.x
+          - v2.x
         os: 
           - ubuntu-22.04
     name: deno lint
@@ -30,10 +35,10 @@ jobs:
       matrix:
         runner:
           - windows-2022
-          - macos-12
+          - macos-15
           - ubuntu-22.04
         version:
-          - "1.x"
+          - "2.x"
         host_version:
           - vim: "v9.0.0472"
             nvim: "v0.8.0"

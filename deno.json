@@ -1,0 +1,6 @@
+{
+  "lock": false,
+  "tasks": {
+    "update": "deno run --allow-env --allow-read --allow-write='.' --allow-run=git,deno --allow-net=jsr.io jsr:@molt/cli --write **/*.ts"
+  }
+}
