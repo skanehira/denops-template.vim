@@ -1,4 +1,4 @@
-import { Denops } from "jsr:@denops/std@7.3.1";
+import { Denops } from "jsr:@denops/std@7.3.2";
 import { isString } from "jsr:@core/unknownutil@4.3.0";
 
 export async function main(denops: Denops): Promise<void> {
