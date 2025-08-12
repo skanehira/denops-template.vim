@@ -24,7 +24,7 @@ jobs:
     name: deno lint
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: denoland/setup-deno@main
         with:
           deno-version: ${{ matrix.deno-version }}
@@ -46,10 +46,10 @@ jobs:
     steps:
       - run: git config --global core.autocrlf false
         if: runner.os == 'Windows'
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           path: "./repo"
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           repository: "vim-denops/denops.vim"
           path: "./denops.vim"
