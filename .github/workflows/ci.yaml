@@ -56,7 +56,7 @@ jobs:
       - uses: denoland/setup-deno@main
         with:
           deno-version: "${{ matrix.version }}"
-      - uses: thinca/action-setup-vim@v1
+      - uses: thinca/action-setup-vim@v3
         id: vim
         with:
           vim_type: "Vim"
@@ -67,7 +67,7 @@ jobs:
           echo ${DENOPS_TEST_VIM_EXECUTABLE}
         env:
           DENOPS_TEST_VIM_EXECUTABLE: ${{ steps.vim.outputs.executable_path }}
-      - uses: thinca/action-setup-vim@v1
+      - uses: thinca/action-setup-vim@v3
         id: nvim
         with:
           vim_type: "Neovim"
